@@ -16,7 +16,7 @@
 
 ## ⚠️ SPECIAL NOTICE
 
-At the moment, we have used this simple code for our clients to do their basic work, but the goal is to migrate to <a href="https://github.com/tinode/chat">tinode</a>, so if you are a programmer familiar with go, you can help us implement tinode.
+At the moment, we have used this simple code for our clients to do their basic work, but the goal is to migrate to <a href="https://github.com/tinode/chat">tinode</a>, so if you are a programmer familiar with go, you could help us to implement tinode.
 
 
 ## 🍃 How to Setup&Run
