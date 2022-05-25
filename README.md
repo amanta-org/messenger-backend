@@ -15,7 +15,7 @@
 - App is hosted in heroku app
 
 
-## 💾 Database shema
+## 💾 Database shema (in progress)
 
 ![Fvico](https://user-images.githubusercontent.com/37432839/170209343-95086421-0b42-49a1-991f-3748a57d2978.png)
 
