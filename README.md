@@ -12,6 +12,7 @@
 - MongoDB
 - Mongoose (elegant mongodb object modeling for node.js)
 - <a href="https://github.com/hosseinkhojany/Telegram_Flutter">You can see client project in this repository</a>
+- App is hosted in heroku app
 
 
 ## 💾 Database shema
