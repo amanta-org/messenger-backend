@@ -11,14 +11,12 @@
 - Socket IO
 - MongoDB
 - Mongoose (elegant mongodb object modeling for node.js)
-- <a href="https://github.com/hosseinkhojany/Telegram_Flutter">You can see client project in this repository</a>
 - App is hosted in heroku app
+- <a href="https://github.com/hosseinkhojany/Telegram_Flutter">You can see client project in this repository</a>
 
+## ⚠️ SPECIAL NOTICE
 
-## 💾 Database shema (in progress)
-
-![Fvico](https://user-images.githubusercontent.com/37432839/170209343-95086421-0b42-49a1-991f-3748a57d2978.png)
-
+At the moment, we have used this simple code for our clients to do their basic work, but the goal is to migrate to <a href="https://github.com/tinode/chat">tinode</a>, so if you are a programmer familiar with go, you can help us implement tinode.
 
 
 ## 🍃 How to Setup&Run
