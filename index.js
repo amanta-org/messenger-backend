@@ -81,13 +81,13 @@ mongoose.connect(mongoDBAddress,
 
         app.get('/history', (req, res) => {
 
-            //page [1*50=(offset: 50-50:`0`, to: `50`],2*50=(offset: 100-50:`50`, to `100`)
+            //page [1*50=( offset: 50-50:`0`, to: `50`],2*50=( offset: 100-50:`50`, to `100` )
             const {username, page} = req.query;
-            const limit = 50;
+            const limit = 2;
             const skip = (page * limit) - limit;
             console.log("\n\n\n"+"username:"+username+" page: "+page+" skip:"+skip+" PageSize: 50"+"\n\n\n");
 
-            messageTable.find().skip(skip).limit(limit).then(result => {
+            messageTable.find().sort({'_id':-1}).skip(skip).limit(limit).then(result => {
                 res.send({
                     "success": true,
                     "message": "",
@@ -165,14 +165,41 @@ mongoose.connect(mongoDBAddress,
 
 
             socket.on('new message', (data) => {
-                const newMessage = new messageTable({username: socket.username, msg: data});
+                console.log(data);
+                const {realName, message, messageType,} = data;
+                console.log(realName+"\n"+message+"\n"+messageType);
+                const newMessage = new messageTable({realName: realName, username: socket.username, message: message, messageType: messageType});
                 newMessage.save().then(() => {
                     socket.broadcast.emit('new message', {
+                        realName: realName,
                         username: socket.username,
-                        message: data
+                        message: message,
+                        messageType: messageType,
                     });
                 });
             });
+
+            // socket.on('message update', (data) => {
+            //     const {username, password, createdAt, updatedAt} = data;
+            //     const newMessage = new messageTable({username: socket.username, msg: data});
+            //     newMessage.save().then(() => {
+            //         socket.broadcast.emit('new message', {
+            //             username: socket.username,
+            //             message: data
+            //         });
+            //     });
+            // });
+
+            // socket.on('message delete', (data) => {
+            //     const {username, password, createdAt, updatedAt} = data;
+            //     const newMessage = new messageTable({username: socket.username, msg: data});
+            //     newMessage.save().then(() => {
+            //         socket.broadcast.emit('new message', {
+            //             username: socket.username,
+            //             message: data
+            //         });
+            //     });
+            // });
 
             socket.on('add user', (username) => {
                 if (addedUser) return;
@@ -203,7 +230,6 @@ mongoose.connect(mongoDBAddress,
             socket.on('disconnect', () => {
                 if (addedUser) {
                     --numUsers;
-
                     socket.broadcast.emit('user left', {
                         username: socket.username,
                         numUsers: numUsers

@@ -1,5 +1,10 @@
 const mongoose = require('mongoose');
 const msgSchema = new mongoose.Schema({
+    realName: {
+        type: String,
+        immutable: false,
+        default: 'new user'
+    },
     username: {
         type: String,
         required: true,
@@ -10,6 +15,24 @@ const msgSchema = new mongoose.Schema({
         required: true,
     },
     avatar: {
+        type: String,
+        immutable: false,
+        default: ''
+    },
+    bio: {
+        type: String,
+        immutable: false,
+    },
+    lastSeen: {
+        type: String,
+        immutable: false,
+    },
+    groups: {
+        type: String,
+        immutable: false,
+        default: ''
+    },
+    pvs: {
         type: String,
         immutable: false,
         default: ''
