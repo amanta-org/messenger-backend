@@ -83,7 +83,7 @@ mongoose.connect(mongoDBAddress,
 
             //page [1*50=( offset: 50-50:`0`, to: `50`],2*50=( offset: 100-50:`50`, to `100` )
             const {username, page} = req.query;
-            const limit = 2;
+            const limit = 50;
             const skip = (page * limit) - limit;
             console.log("\n\n\n"+"username:"+username+" page: "+page+" skip:"+skip+" PageSize: 50"+"\n\n\n");
 
