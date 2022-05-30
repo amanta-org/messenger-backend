@@ -19,6 +19,12 @@ const msgSchema = new mongoose.Schema({
         immutable: false,
         default: ''
     },
+    //if avatar == empty show pokemonHero As Avatar
+    pokemonHero: {
+        type: String,
+        immutable: false,
+        default: ''
+    },
     bio: {
         type: String,
         immutable: false,
