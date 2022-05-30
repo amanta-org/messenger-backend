@@ -131,6 +131,19 @@ mongoose.connect(mongoDBAddress,
 
         });
 
+
+        app.get('/downloadImage', (req, res) => {
+            const {id} = req.query;
+            const query = {_id: id};
+            imageTable.find(query).then( result => {
+                res.send({
+                    "success": true,
+                    "message": "",
+                    "data": result
+                })
+            })
+        });
+
 //--------------------------------------REST------------------------------------------------
 
 
